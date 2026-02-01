@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="J & V Construction LLC - Professional remodeling and construction services in Tennessee.">
+    <title>J & V Construction LLC - Building Excellence</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <!-- Three.js for WebGL Blob Effect -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/components/gallery.css">
+    <link rel="stylesheet" href="css/components/concrete.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+        <a href="#home" class="navbar__logo"><img src="img/logo.png" alt="J&V Construction Logo"></a>
+        <ul class="navbar__menu">
+            <li><a href="#home" class="navbar__link">Home</a></li>
+            <li><a href="#about" class="navbar__link">About</a></li>
+            <li><a href="#values" class="navbar__link">Values</a></li>
+            <li><a href="#gallery" class="navbar__link">Gallery</a></li>
+            <li><a href="#concrete" class="navbar__link">Concrete</a></li>
+            <li><a href="#services" class="navbar__link">Services</a></li>
+            <li><a href="#why-us" class="navbar__link">Why Us</a></li>
+            <li><a href="#contact" class="navbar__link">Contact</a></li>
+        </ul>
+        <button class="navbar__toggle" aria-label="Toggle menu" aria-expanded="false">
+            <span class="navbar__toggle-bar"></span>
+            <span class="navbar__toggle-bar"></span>
+            <span class="navbar__toggle-bar"></span>
+        </button>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero__image hero__image--bottom">
+            <img src="img/hero2.jpg?v=2" alt="Construction project">
+        </div>
+        <div class="hero__image hero__image--top">
+            <img src="img/hero.jpg?v=2" alt="Construction work">
+        </div>
+        <div class="hero__overlay"></div>
+        <div class="hero__content">
+            <div class="hero__text hero__text--initial">
+                <h1 class="hero__title-large">Transforming Spaces</h1>
+                <p class="hero__subtitle-large">Where Vision Meets Craftsmanship</p>
+            </div>
+            <div class="hero__text hero__text--secondary">
+                <p class="hero__tagline">Building Dreams Since 2020</p>
+                <h2 class="hero__title">
+                    <span class="hero__title-word">Building</span>
+                    <span class="hero__title-word">with</span>
+                    <span class="hero__title-word">Excellence</span>
+                </h2>
+                <p class="hero__subtitle">Experience the whole journey from planning, design, estimating, project management, and a warranty service like no other.</p>
+            </div>
+            <div class="hero__cta-container">
+                <div class="hero__cta">
+                    <a href="#contact" class="btn btn--primary">Get a Quote</a>
+                    <a href="#services" class="btn btn--secondary">Our Services</a>
+                </div>
+            </div>
+        </div>
+        <div class="hero__scroll-indicator">
+            <span>Scroll to explore</span>
+            <div class="hero__scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="section values" id="values">
+        <div class="values__grid">
+            <article class="value-card" style="background-image: url('img2/windows 2.jpeg')">
+                <div class="value-card__overlay">
+                    <div class="value-card__icon"><i data-lucide="eye"></i></div>
+                    <h3 class="value-card__title">Honesty</h3>
+                    <p class="value-card__text">Transparent communication in every project</p>
+                </div>
+            </article>
+            <article class="value-card" style="background-image: url('img2/structure 1.jpeg')">
+                <div class="value-card__overlay">
+                    <div class="value-card__icon"><i data-lucide="shield-check"></i></div>
+                    <h3 class="value-card__title">Integrity</h3>
+                    <p class="value-card__text">Doing what's right, not what's easy</p>
+                </div>
+            </article>
+            <article class="value-card" style="background-image: url('img2/roof.PNG')">
+                <div class="value-card__overlay">
+                    <div class="value-card__icon"><i data-lucide="timer"></i></div>
+                    <h3 class="value-card__title">Efficiency</h3>
+                    <p class="value-card__text">On time, on budget, every time</p>
+                </div>
+            </article>
+            <article class="value-card" style="background-image: url('img2/kitchen 1.jpeg')">
+                <div class="value-card__overlay">
+                    <div class="value-card__icon"><i data-lucide="star"></i></div>
+                    <h3 class="value-card__title">Quality</h3>
+                    <p class="value-card__text">Craftsmanship that stands the test of time</p>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Gallery Section - Image Carousel -->
+    <section class="gallery" id="gallery">
+        <div class="gallery__wrapper">
+            <div class="gallery__track">
+                <div class="gallery__item">
+                    <img src="img2/Post JV-05.PNG" alt="Construction project">
+                </div>
+                <div class="gallery__item">
+                    <img src="img2/bathroom 1.jpg" alt="Bathroom renovation">
+                </div>
+                <div class="gallery__item">
+                    <img src="img2/bathroom 2.JPG" alt="Bathroom project">
+                </div>
+                <div class="gallery__item">
+                    <img src="img2/kitchen 1.jpeg" alt="Kitchen renovation">
+                </div>
+                <div class="gallery__item">
+                    <img src="img2/others 1.jpeg" alt="Construction work">
+                </div>
+                <div class="gallery__item">
+                    <img src="img2/roof.PNG" alt="Roofing project">
+                </div>
+                <div class="gallery__item">
+                    <img src="img2/sala 1.JPG" alt="Living room">
+                </div>
+                <div class="gallery__item">
+                    <img src="img2/sala 2.JPG" alt="Living space">
+                </div>
+                <div class="gallery__item">
+                    <img src="img2/structure 1.jpeg" alt="Structural work">
+                </div>
+                <div class="gallery__item">
+                    <img src="img2/structure 2.jpeg" alt="Framing project">
+                </div>
+                <div class="gallery__item">
+                    <img src="img2/windows 2.jpeg" alt="Window installation">
+                </div>
+                <div class="gallery__item">
+                    <img src="img2/windows.JPG" alt="Windows project">
+                </div>
+                <div class="gallery__item">
+                    <img src="img2/woods.jpeg" alt="Wood work">
+                </div>
+                <!-- Duplicate for seamless loop -->
+                <div class="gallery__item">
+                    <img src="img2/Post JV-05.PNG" alt="Construction project">
+                </div>
+                <div class="gallery__item">
+                    <img src="img2/bathroom 1.jpg" alt="Bathroom renovation">
+                </div>
+                <div class="gallery__item">
+                    <img src="img2/bathroom 2.JPG" alt="Bathroom project">
+                </div>
+                <div class="gallery__item">
+                    <img src="img2/kitchen 1.jpeg" alt="Kitchen renovation">
+                </div>
+                <div class="gallery__item">
+                    <img src="img2/others 1.jpeg" alt="Construction work">
+                </div>
+                <div class="gallery__item">
+                    <img src="img2/roof.PNG" alt="Roofing project">
+                </div>
+                <div class="gallery__item">
+                    <img src="img2/sala 1.JPG" alt="Living room">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Concrete Work Section -->
+    <section class="concrete" id="concrete">
+        <div class="concrete__bg" style="background-image: url('img2/structure 2.jpeg')"></div>
+
+        <!-- Intro que se ve primero -->
+        <div class="concrete__intro">
+            <div class="concrete__icon"><i data-lucide="hard-hat"></i></div>
+            <span class="concrete__tag">Our Expertise</span>
+            <h2 class="concrete__title">Concrete Work</h2>
+            <p class="concrete__text">At J&V Construction, we specialize in high-quality concrete work for residential and light commercial projects. From site preparation to the final finish, we deliver structurally sound, code-compliant concrete built to last.</p>
+        </div>
+
+        <!-- Horizontal Scroll - Todo se mueve de derecha a izquierda -->
+        <div class="concrete__horizontal-wrapper">
+            <div class="concrete__horizontal-track">
+                <!-- Panel 1: Servicios -->
+                <div class="concrete__horizontal-panel concrete__horizontal-panel--services">
+                    <div class="concrete__services">
+                        <h3 class="concrete__services-title">Our Concrete Services Include:</h3>
+                        <div class="concrete__grid">
+                            <article class="concrete__service">
+                                <div class="concrete__service-image">
+                                    <img src="img/concrete/slabs-pouring.jpg" alt="Concrete Slabs" loading="lazy">
+                                </div>
+                                <div class="concrete__service-content">
+                                    <h4 class="concrete__service-title">Concrete Slabs (Pouring & Finishing)</h4>
+                                    <p class="concrete__service-text">We install concrete slabs for new construction, additions, garages, sheds, and remodeling projects. Every slab is properly graded, compacted, reinforced, and poured to meet structural requirements and local codes.</p>
+                                </div>
+                            </article>
+                            <article class="concrete__service">
+                                <div class="concrete__service-image">
+                                    <img src="img/concrete/driveway.jpg" alt="Concrete Driveways" loading="lazy">
+                                </div>
+                                <div class="concrete__service-content">
+                                    <h4 class="concrete__service-title">Concrete Driveways</h4>
+                                    <p class="concrete__service-text">We build durable, clean-finished concrete driveways designed to handle daily vehicle traffic and Tennessee weather conditions. Proper base preparation and reinforcement ensure long-term performance and minimal cracking.</p>
+                                </div>
+                            </article>
+                            <article class="concrete__service">
+                                <div class="concrete__service-image">
+                                    <img src="img/concrete/footings.jpg" alt="Footings & Foundations" loading="lazy">
+                                </div>
+                                <div class="concrete__service-content">
+                                    <h4 class="concrete__service-title">Footings & Foundations</h4>
+                                    <p class="concrete__service-text">We pour concrete footings and foundation elements with accurate layout, correct dimensions, and proper reinforcement to provide a solid structural base for framing and load-bearing systems.</p>
+                                </div>
+                            </article>
+                            <article class="concrete__service">
+                                <div class="concrete__service-image">
+                                    <img src="img/concrete/formwork.jpg" alt="Formwork & Reinforcement" loading="lazy">
+                                </div>
+                                <div class="concrete__service-content">
+                                    <h4 class="concrete__service-title">Formwork & Reinforcement</h4>
+                                    <p class="concrete__service-text">All projects include professional formwork, rebar or wire mesh installation, and precise elevation control to guarantee strength, consistency, and clean edges.</p>
+                                </div>
+                            </article>
+                            <article class="concrete__service concrete__service--fullwidth">
+                                <div class="concrete__service-image">
+                                    <img src="img/concrete/repairs.jpg" alt="Concrete Repairs & Re-Pours" loading="lazy">
+                                </div>
+                                <div class="concrete__service-content">
+                                    <h4 class="concrete__service-title">Concrete Repairs & Re-Pours</h4>
+                                    <p class="concrete__service-text">We handle slab replacements, over-pours, corrections, and structural concrete repairs when existing concrete is damaged, uneven, or out of specification.</p>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Panel 2: Our Commitment -->
+                <div class="concrete__horizontal-panel concrete__horizontal-panel--commitment">
+                    <div class="concrete__commitment-content">
+                        <span class="concrete__tag">Our Commitment</span>
+                        <h2>Why Choose J&V Construction</h2>
+                        <div class="concrete__commitment-grid">
+                            <div class="concrete__commitment-card">
+                                <div class="concrete__commitment-icon">
+                                    <i data-lucide="layers"></i>
+                                </div>
+                                <h4>Proper Grading</h4>
+                                <p>Compaction and reinforcement done right</p>
+                            </div>
+                            <div class="concrete__commitment-card">
+                                <div class="concrete__commitment-icon">
+                                    <i data-lucide="sparkles"></i>
+                                </div>
+                                <h4>Clean Finishes</h4>
+                                <p>Professional quality every time</p>
+                            </div>
+                            <div class="concrete__commitment-card">
+                                <div class="concrete__commitment-icon">
+                                    <i data-lucide="calendar-check"></i>
+                                </div>
+                                <h4>On Schedule</h4>
+                                <p>Timely pours and inspections</p>
+                            </div>
+                            <div class="concrete__commitment-card">
+                                <div class="concrete__commitment-icon">
+                                    <i data-lucide="home"></i>
+                                </div>
+                                <h4>Proven Experience</h4>
+                                <p>Residential and builder-grade projects</p>
+                            </div>
+                            <div class="concrete__commitment-card">
+                                <div class="concrete__commitment-icon">
+                                    <i data-lucide="shield-check"></i>
+                                </div>
+                                <h4>Safety First</h4>
+                                <p>Detail-driven execution always</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Panel 3: CTA -->
+                <div class="concrete__horizontal-panel concrete__horizontal-panel--cta">
+                    <div class="concrete__horizontal-content concrete__horizontal-content--centered">
+                        <h2>Reliable Concrete Solutions You Can Trust</h2>
+                        <p>Whether you're a homeowner, builder, or investor, J&V Construction provides reliable concrete solutions you can trust—from small slabs to full driveways and foundations.</p>
+                        <a href="#contact" class="btn btn--primary"><span>Get Started Today</span><i data-lucide="arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section about" id="about">
+        <div class="container">
+            <div class="about__grid">
+                <div class="about__content">
+                    <span class="section-tag">Who We Are</span>
+                    <h2>A Team Passionate About Building</h2>
+                    <p>J&V Const. LLC is a team of individuals who have come together with a passion for building, remodeling, reconstruction, and restoration.</p>
+                    <p>We serve our customers and community in the best way we know how. We are constantly looking to better ourselves and expand on the services we provide to those who trust in us.</p>
+                    <p>We are extremely grateful for each and every one of our customers and the impact we have on each other's lives.</p>
+                </div>
+                <div class="about__image">
+                    <div class="about__image-gallery">
+                        <div class="about__image-main">
+                            <img src="img2/structure 1.jpeg" alt="J&V Construction structural work">
+                        </div>
+                        <div class="about__image-secondary">
+                            <img src="img2/structure 2.jpeg" alt="J&V Construction framing project">
+                            <img src="img2/woods.jpeg" alt="J&V Construction wood work">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <div class="services-wrapper" id="services">
+    <section class="section services">
+        <!-- Intro con blur que desaparece al scroll -->
+        <div class="services__intro">
+            <div class="services__intro-bg"></div>
+            <div class="services__intro-content">
+                <span class="section-tag">What We Do</span>
+                <h2 class="services__intro-title">More Services</h2>
+                <p class="services__intro-text">Full-service construction and remodeling</p>
+            </div>
+        </div>
+
+        <!-- Gallery de servicios -->
+        <div class="services__gallery">
+            <article class="service-image-card" style="background-image: url('img/img57.jpg')">
+                <div class="service-image-card__overlay">
+                    <h3>Flooring</h3>
+                    <p>Hardwood, tile, laminate, and more</p>
+                </div>
+            </article>
+            <article class="service-image-card" style="background-image: url('img/img61.jpg')">
+                <div class="service-image-card__overlay">
+                    <h3>Painting</h3>
+                    <p>Interior & exterior professional painting</p>
+                </div>
+            </article>
+            <article class="service-image-card" style="background-image: url('img/img56.jpg')">
+                <div class="service-image-card__overlay">
+                    <h3>Drywall</h3>
+                    <p>Installation, repair, and finishing</p>
+                </div>
+            </article>
+            <article class="service-image-card" style="background-image: url('img/img54.jpg')">
+                <div class="service-image-card__overlay">
+                    <h3>Framing</h3>
+                    <p>Structural framing for new builds</p>
+                </div>
+            </article>
+            <article class="service-image-card" style="background-image: url('img/img58.jpg')">
+                <div class="service-image-card__overlay">
+                    <h3>Stone</h3>
+                    <p>Natural and manufactured stone work</p>
+                </div>
+            </article>
+            <article class="service-image-card" style="background-image: url('img/img55.jpg')">
+                <div class="service-image-card__overlay">
+                    <h3>Pavers</h3>
+                    <p>Driveways, patios, walkways</p>
+                </div>
+            </article>
+            <article class="service-image-card" style="background-image: url('img/img59.jpg')">
+                <div class="service-image-card__overlay">
+                    <h3>Fireplaces</h3>
+                    <p>Installation and remodeling</p>
+                </div>
+            </article>
+            <article class="service-image-card" style="background-image: url('img/img52.jpg')">
+                <div class="service-image-card__overlay">
+                    <h3>Roofing</h3>
+                    <p>Repairs, replacements, new installs</p>
+                </div>
+            </article>
+            <article class="service-image-card" style="background-image: url('img/img50.jpg')">
+                <div class="service-image-card__overlay">
+                    <h3>Remodeling</h3>
+                    <p>Kitchen, bathroom, full home remodels</p>
+                </div>
+            </article>
+        </div>
+    </section>
+    </div>
+
+    <!-- Features Section -->
+    <section class="section features" id="why-us">
+        <div class="features__bg" style="background-image: url('img2/kitchen 1.jpeg')"></div>
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">The J&V Difference</h2>
+                <p class="section-description">Experience quality craftsmanship with a team that puts your vision first.</p>
+            </div>
+            <div class="features__grid">
+                <article class="feature-item">
+                    <div class="feature-item__icon">
+                        <i data-lucide="message-circle"></i>
+                    </div>
+                    <div class="feature-item__content">
+                        <h3 class="feature-item__title">Clear Communication</h3>
+                        <p class="feature-item__text">Satisfaction starts with clear communication. We keep you informed every step of the way.</p>
+                    </div>
+                </article>
+                <article class="feature-item">
+                    <div class="feature-item__icon">
+                        <i data-lucide="eye"></i>
+                    </div>
+                    <div class="feature-item__content">
+                        <h3 class="feature-item__title">Transparency</h3>
+                        <p class="feature-item__text">No hidden fees, no surprises. Just honest, upfront pricing and project management.</p>
+                    </div>
+                </article>
+                <article class="feature-item">
+                    <div class="feature-item__icon">
+                        <i data-lucide="shield-check"></i>
+                    </div>
+                    <div class="feature-item__content">
+                        <h3 class="feature-item__title">Warrantied Work</h3>
+                        <p class="feature-item__text">We stand behind our workmanship with a 1-Year warranty for your peace of mind.</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <div class="contact__content">
+                <span class="section-tag">Get In Touch</span>
+                <h2 class="section-title">Ready to Build?</h2>
+                <p class="section-description">Let's discuss your project and bring your vision to life.</p>
+                <div class="contact__info">
+                    <div class="contact__item">
+                        <a href="tel:+18659196354" class="contact__link">
+                            <span aria-hidden="true">📞</span>
+                            +1 (865) 919-6354
+                        </a>
+                    </div>
+                    <div class="contact__item">
+                        <a href="mailto:jvconst.llc@gmail.com" class="contact__link">
+                            <span aria-hidden="true">✉️</span>
+                            jvconst.llc@gmail.com
+                        </a>
+                    </div>
+                </div>
+                <a href="https://www.facebook.com/JVStoneandpavers" target="_blank" rel="noopener noreferrer" class="contact__social">
+                    <span aria-hidden="true">👥</span>
+                    Follow us on Facebook
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p class="footer__text">© 2025 J & V Construction LLC. All rights reserved.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/components/gallery.js"></script>
+    <script src="js/components/concrete.js"></script>
+    <script src="js/components/services.js"></script>
+    <script>lucide.createIcons();</script>
+</body>
+</html>
