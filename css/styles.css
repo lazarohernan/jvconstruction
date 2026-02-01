@@ -171,6 +171,14 @@ ul {
     margin: 0 auto;
 }
 
+/* Ampersand con fuente distinta, mismo color que el texto */
+.amp {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-weight: 700;
+    font-style: normal;
+    color: inherit;
+}
+
 /* Buttons */
 .btn {
     display: inline-flex;
