@@ -1,6 +1,9 @@
 // ========================================
 // Services Section - Scroll Animation (Sticky + ScrollTrigger)
 // ========================================
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+gsap.registerPlugin(ScrollTrigger);
 
 function initServicesSection() {
     const servicesWrapper = document.querySelector('.services-wrapper');

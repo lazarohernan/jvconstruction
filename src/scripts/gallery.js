@@ -1,6 +1,9 @@
 // ========================================
 // Gallery Component - Horizontal Scroll Animation
 // ========================================
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+gsap.registerPlugin(ScrollTrigger);
 
 function initGalleryScroll() {
     const galleryTrack = document.querySelector('.gallery__track');
