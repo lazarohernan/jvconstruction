@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+@import "./base.css";
+@import "./components/concrete.css";
+@import "./components/accordion-gallery.css";
+@import "./components/masonry.css";
+@import "./components/depth-carousel.css";
+
+/*
+ * concrete-horizontal.css y ../scripts/horizontal-scroll.js se portaron
+ * (no se pierde el archivo) pero el index.html original tampoco los
+ * enlazaba y no hay markup .horizontal-scroll en el sitio actual.
+ * Se dejan sin importar aquí para no cambiar el comportamiento existente.
+ */

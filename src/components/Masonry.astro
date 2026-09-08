@@ -1,0 +1,50 @@
+---
+interface Item {
+    id: string;
+    img: string;
+    url?: string;
+    height: number;
+}
+
+interface Props {
+    items: Item[];
+    ease?: string;
+    duration?: number;
+    stagger?: number;
+    animateFrom?: 'top' | 'bottom' | 'left' | 'right' | 'center' | 'random';
+    scaleOnHover?: boolean;
+    hoverScale?: number;
+    blurToFocus?: boolean;
+}
+
+const {
+    items,
+    ease = 'power3.out',
+    duration = 0.6,
+    stagger = 0.05,
+    animateFrom = 'bottom',
+    scaleOnHover = true,
+    hoverScale = 0.95,
+    blurToFocus = true,
+} = Astro.props;
+---
+<div
+    class="masonry-list"
+    data-ease={ease}
+    data-duration={duration}
+    data-stagger={stagger}
+    data-animate-from={animateFrom}
+    data-scale-on-hover={scaleOnHover ? '1' : '0'}
+    data-hover-scale={hoverScale}
+    data-blur-to-focus={blurToFocus ? '1' : '0'}
+>
+    {items.map((item) => (
+        <div class="masonry-item-wrapper" data-key={item.id} data-height={item.height} data-url={item.url || ''} data-img={item.img}>
+            <div class="masonry-item-img" style={`background-image:url('${item.img}')`}></div>
+        </div>
+    ))}
+</div>
+
+<script>
+import '../scripts/masonry.js';
+</script>

@@ -1,6 +1,9 @@
 // ========================================
 // Horizontal Scroll Component - GSAP ScrollTrigger
 // ========================================
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+gsap.registerPlugin(ScrollTrigger);
 
 function initHorizontalScroll() {
     const horizontalSection = document.querySelector('.horizontal-scroll');

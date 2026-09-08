@@ -28,3 +28,7 @@ node_modules/
 # Windsurf specific
 .windsurf/
 windsurf_deployment.yaml
+
+# Astro
+dist/
+.astro/

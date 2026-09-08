@@ -2,6 +2,8 @@
  * J & V Construction LLC - Main JavaScript
  * GSAP Animations and Interactions
  */
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 // Register GSAP Plugins
 gsap.registerPlugin(ScrollTrigger);
@@ -18,84 +20,28 @@ const navLinks = document.querySelectorAll('.navbar__link');
 // Hero Animations
 // ========================================
 function initHeroAnimations() {
-    const heroTl = gsap.timeline({
-        defaults: { ease: 'power3.out' }
+    gsap.from('.hero__title-large', {
+        y: 40,
+        opacity: 0,
+        duration: 1,
+        ease: 'power3.out',
+        delay: 0.2
     });
 
-    heroTl
-        .to('.hero__tagline', {
-            opacity: 1,
-            y: 0,
-            duration: 0.8,
-            delay: 0.3
-        })
-        .to('.hero__title-word', {
-            opacity: 1,
-            y: 0,
-            duration: 1,
-            stagger: 0.15
-        }, '-=0.4')
-        .to('.hero__subtitle', {
-            opacity: 1,
-            duration: 0.8
-        }, '-=0.6')
-        .to('.hero__cta', {
-            opacity: 1,
-            y: 0,
-            duration: 0.6
-        }, '-=0.4');
-}
-
-// ========================================
-// Background Shapes Animation
-// ========================================
-function initShapesAnimation() {
-    gsap.to('.hero__shape', {
-        y: 'random(-30, 30)',
-        x: 'random(-30, 30)',
-        duration: 'random(3, 5)',
-        repeat: -1,
-        yoyo: true,
-        ease: 'sine.inOut',
-        stagger: {
-            each: 0.5,
-            from: 'random'
-        }
+    gsap.from('.hero__subtitle-large', {
+        y: 30,
+        opacity: 0,
+        duration: 0.9,
+        ease: 'power3.out',
+        delay: 0.45
     });
-}
 
-// ========================================
-// Parallax Effect on Mouse Move
-// ========================================
-function initParallaxEffect() {
-    const isTouchDevice = window.matchMedia('(pointer: coarse)').matches;
-    
-    if (isTouchDevice) return;
-
-    document.addEventListener('mousemove', (e) => {
-        const mouseX = (e.clientX / window.innerWidth - 0.5) * 2;
-        const mouseY = (e.clientY / window.innerHeight - 0.5) * 2;
-
-        gsap.to('.hero__shape--1', {
-            x: mouseX * 30,
-            y: mouseY * 30,
-            duration: 1,
-            ease: 'power2.out'
-        });
-
-        gsap.to('.hero__shape--2', {
-            x: mouseX * -20,
-            y: mouseY * -20,
-            duration: 1,
-            ease: 'power2.out'
-        });
-
-        gsap.to('.hero__shape--3', {
-            x: mouseX * 40,
-            y: mouseY * 40,
-            duration: 1,
-            ease: 'power2.out'
-        });
+    gsap.from('.hero__cta', {
+        y: 20,
+        opacity: 0,
+        duration: 0.8,
+        ease: 'power3.out',
+        delay: 0.65
     });
 }
 
@@ -103,8 +49,7 @@ function initParallaxEffect() {
 // Navbar Scroll Effect
 // ========================================
 function initNavbarScroll() {
-    // El navbar solo se activa después de que termine el efecto del hero
-    // El hero está fijado por 150vh, entonces esperamos a que pase eso
+    // El navbar cambia a estilo "scrolled" apenas se sale del hero
     ScrollTrigger.create({
         trigger: '.hero',
         start: 'bottom top',
@@ -117,21 +62,6 @@ function initNavbarScroll() {
 // Scroll Reveal Animations
 // ========================================
 function initScrollAnimations() {
-    // Value Cards
-    gsap.utils.toArray('.value-card').forEach((card, i) => {
-        gsap.to(card, {
-            scrollTrigger: {
-                trigger: card,
-                start: 'top 85%',
-                toggleActions: 'play none none reverse'
-            },
-            opacity: 1,
-            y: 0,
-            duration: 0.6,
-            delay: i * 0.1
-        });
-    });
-
     // About Image
     gsap.to('.about__image', {
         scrollTrigger: {
@@ -202,18 +132,6 @@ function initScrollAnimations() {
             duration: 0.5,
             delay: i * 0.1
         });
-    });
-
-    // Social Link
-    gsap.to('.contact__social', {
-        scrollTrigger: {
-            trigger: '.contact__social',
-            start: 'top 90%',
-            toggleActions: 'play none none reverse'
-        },
-        opacity: 1,
-        duration: 0.6,
-        delay: 0.3
     });
 }
 
@@ -334,113 +252,9 @@ function initImageReveal() {
 }
 
 // ========================================
-// Hero Scroll Reveal Animation
+// Section Header Scroll Animation
 // ========================================
-function initHeroScrollReveal() {
-    const topImage = document.querySelector('.hero__image--top');
-    const initialText = document.querySelector('.hero__text--initial');
-    const secondaryText = document.querySelector('.hero__text--secondary');
-    const ctaContainer = document.querySelector('.hero__cta-container');
-    const scrollIndicator = document.querySelector('.hero__scroll-indicator');
-    
-    if (!topImage || !initialText || !secondaryText) return;
-
-    // Timeline para el scroll reveal con pin
-    const tl = gsap.timeline({
-        scrollTrigger: {
-            trigger: '.hero',
-            start: 'top top',
-            end: '+=150%',
-            pin: true,
-            scrub: 1,
-            anticipatePin: 1
-        }
-    });
-
-    // Animar la imagen superior revelando de arriba hacia abajo
-    tl.to(topImage, {
-        clipPath: 'inset(100% 0 0 0)',
-        ease: 'none'
-    }, 0);
-
-    // Crossfade entre textos con efecto 3D en eje Z
-    // Texto inicial: se aleja (z negativo) y desaparece
-    tl.to(initialText, {
-        opacity: 0,
-        z: -500,
-        ease: 'power2.in'
-    }, 0.1);
-
-    // Texto secundario: viene de atrás (z positivo) hacia el frente
-    tl.fromTo(secondaryText, 
-        { 
-            opacity: 0, 
-            z: 500
-        },
-        { 
-            opacity: 1, 
-            z: 0,
-            ease: 'power2.out'
-        }, 
-        0.4
-    );
-
-    // Fade out del scroll indicator
-    tl.to(scrollIndicator, {
-        opacity: 0,
-        y: 20,
-        ease: 'power2.in'
-    }, 0);
-
-    // Animación inicial del texto (sin scroll)
-    gsap.from('.hero__title-large', {
-        duration: 1.2,
-        y: 100,
-        opacity: 0,
-        ease: 'power4.out',
-        delay: 0.3
-    });
-
-    gsap.from('.hero__subtitle-large', {
-        duration: 1,
-        y: 50,
-        opacity: 0,
-        ease: 'power3.out',
-        delay: 0.6
-    });
-
-    gsap.from(scrollIndicator, {
-        duration: 1,
-        opacity: 0,
-        y: -20,
-        ease: 'power2.out',
-        delay: 1.2
-    });
-}
-
-// ========================================
-// Value Cards Scroll Animation
-// ========================================
-function initValueCardsAnimation() {
-    const valueCards = document.querySelectorAll('.value-card');
-    if (!valueCards.length) return;
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry, index) => {
-            if (entry.isIntersecting) {
-                setTimeout(() => {
-                    entry.target.classList.add('visible');
-                }, index * 150);
-                observer.unobserve(entry.target);
-            }
-        });
-    }, {
-        threshold: 0.2,
-        rootMargin: '0px 0px -50px 0px'
-    });
-
-    valueCards.forEach(card => observer.observe(card));
-
+function initSectionHeaderAnimation() {
     // Animate section headers (values + features)
     const sectionHeaders = document.querySelectorAll('.values .section-header, .features .section-header');
     if (sectionHeaders.length) {
@@ -489,15 +303,12 @@ function initGlobalScrollReveal() {
 // ========================================
 function init() {
     initHeroAnimations();
-    initShapesAnimation();
-    initParallaxEffect();
     initNavbarScroll();
     initScrollAnimations();
     initMobileMenu();
     initSmoothScroll();
     initImageReveal();
-    initHeroScrollReveal();
-    initValueCardsAnimation();
+    initSectionHeaderAnimation();
     initGlobalScrollReveal();
 }
 

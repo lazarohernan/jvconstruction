@@ -1,6 +1,9 @@
 // ========================================
 // Concrete Work Component - Fade In Animation
 // ========================================
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+gsap.registerPlugin(ScrollTrigger);
 
 function initConcreteSection() {
     // Animate intro section

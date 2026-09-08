@@ -1,0 +1,32 @@
+---
+import Masonry from './Masonry.astro';
+import DepthCarousel from './DepthCarousel.astro';
+
+const items = [
+    { id: '1', img: '/img2/Post JV-05.PNG', height: 420 },
+    { id: '2', img: '/img2/bathroom 1.jpg', height: 320 },
+    { id: '3', img: '/img2/bathroom 2.JPG', height: 480 },
+    { id: '4', img: '/img2/kitchen 1.jpeg', height: 360 },
+    { id: '5', img: '/img2/others 1.jpeg', height: 300 },
+    { id: '6', img: '/img2/roof.PNG', height: 440 },
+    { id: '7', img: '/img2/sala 1.JPG', height: 340 },
+    { id: '8', img: '/img2/sala 2.JPG', height: 400 },
+    { id: '9', img: '/img2/structure 1.jpeg', height: 300 },
+    { id: '10', img: '/img2/structure 2.jpeg', height: 460 },
+    { id: '11', img: '/img2/windows 2.jpeg', height: 320 },
+    { id: '12', img: '/img2/windows.JPG', height: 380 },
+    { id: '13', img: '/img2/woods.jpeg', height: 420 },
+];
+
+const carouselItems = items.map((item) => ({ image: item.img, alt: 'J & V Construction project' }));
+---
+<section class="section gallery" id="gallery">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-tag">Our Work</span>
+            <h2 class="section-title">Project Gallery</h2>
+        </div>
+        <Masonry items={items} animateFrom="bottom" scaleOnHover={true} hoverScale={0.96} blurToFocus={true} />
+        <DepthCarousel items={carouselItems} />
+    </div>
+</section>
