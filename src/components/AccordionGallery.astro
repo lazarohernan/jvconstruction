@@ -1,0 +1,112 @@
+---
+interface Item {
+    image: string;
+    label?: string;
+    text?: string;
+    link?: string;
+    alt?: string;
+}
+
+interface Props {
+    items: Item[];
+    defaultIndex?: number;
+    accentColor?: string;
+    overlayColor?: string;
+    textColor?: string;
+    grayscale?: boolean;
+    showLabels?: boolean;
+    duration?: number;
+    ease?: string;
+    parallax?: number;
+    tilt?: number;
+    stagger?: number;
+    trigger?: 'hover' | 'click';
+    height?: number;
+    gap?: number;
+    radius?: number;
+    expandRatio?: number;
+    orientation?: 'horizontal' | 'vertical';
+}
+
+const {
+    items,
+    defaultIndex = 2,
+    accentColor = '#ffffff',
+    overlayColor = '#060010',
+    textColor = '#ffffff',
+    grayscale = true,
+    showLabels = true,
+    duration = 0.6,
+    ease = 'power3.out',
+    parallax = 0.5,
+    tilt = 8,
+    stagger = 0.06,
+    trigger = 'hover',
+    height = 460,
+    gap = 10,
+    radius = 16,
+    expandRatio = 0.52,
+    orientation = 'horizontal',
+} = Astro.props;
+
+const vertical = orientation === 'vertical';
+const clampedDefault = Math.min(Math.max(defaultIndex, 0), items.length - 1);
+const rootHeight = vertical ? Math.round(height * 1.6) : height;
+const rootStyle = `--ag-accent:${accentColor};--ag-overlay:${overlayColor};--ag-text:${textColor};--ag-gap:${gap}px;--ag-radius:${radius}px;height:${rootHeight}px;`;
+---
+<div
+    class={`accordion-gallery${vertical ? ' accordion-gallery--vertical' : ''}`}
+    data-orientation={orientation}
+    data-trigger={trigger}
+    data-active={clampedDefault}
+    data-count={items.length}
+    data-expand-ratio={expandRatio}
+    data-duration={duration}
+    data-ease={ease}
+    data-parallax={parallax}
+    data-tilt={tilt}
+    data-stagger={stagger}
+    data-grayscale={grayscale ? '1' : '0'}
+    data-show-labels={showLabels ? '1' : '0'}
+    data-gap={gap}
+    style={rootStyle}
+    role="list"
+    aria-label="Image accordion gallery"
+>
+    {items.map((item, i) => {
+        const Tag = item.link ? 'a' : 'div';
+        const isActive = i === clampedDefault;
+        return (
+            <Tag
+                class={`ag-panel${isActive ? ' ag-panel--active' : ''}`}
+                style={`border-radius:${radius}px;`}
+                href={item.link || undefined}
+                data-index={i}
+                role="listitem"
+                tabindex="0"
+                aria-current={isActive ? 'true' : undefined}
+                aria-label={item.label}
+            >
+                <span class="ag-panel__frame">
+                    <span class="ag-panel__media">
+                        <img src={item.image} alt={item.alt || item.label || ''} draggable="false" />
+                    </span>
+                    <span class="ag-panel__overlay" aria-hidden="true"></span>
+                </span>
+                {showLabels && (
+                    <span class="ag-panel__label" aria-hidden="true">
+                        <span class="ag-panel__bar"></span>
+                        <span class="ag-panel__text">
+                            {item.label && <strong class="ag-panel__title">{item.label}</strong>}
+                            {item.text && <span class="ag-panel__desc">{item.text}</span>}
+                        </span>
+                    </span>
+                )}
+            </Tag>
+        );
+    })}
+</div>
+
+<script>
+import '../scripts/accordion-gallery.js';
+</script>

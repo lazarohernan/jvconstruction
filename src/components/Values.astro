@@ -1,35 +1,27 @@
 ---
-import { Eye, ShieldCheck, Timer, Star } from 'lucide-astro';
+import AccordionGallery from './AccordionGallery.astro';
+
+const items = [
+    { image: '/img2/windows 2.jpeg', label: 'Honesty', text: 'Transparent communication in every project' },
+    { image: '/img2/structure 1.jpeg', label: 'Integrity', text: "Doing what's right, not what's easy" },
+    { image: '/img2/roof.PNG', label: 'Efficiency', text: 'On time, on budget, every time' },
+    { image: '/img2/kitchen 1.jpeg', label: 'Quality', text: 'Craftsmanship that stands the test of time' },
+];
 ---
 <section class="section values" id="values">
-    <div class="values__grid">
-        <article class="value-card" style="background-image: url('/img2/windows 2.jpeg')">
-            <div class="value-card__overlay">
-                <div class="value-card__icon"><Eye /></div>
-                <h3 class="value-card__title">Honesty</h3>
-                <p class="value-card__text">Transparent communication in every project</p>
-            </div>
-        </article>
-        <article class="value-card" style="background-image: url('/img2/structure 1.jpeg')">
-            <div class="value-card__overlay">
-                <div class="value-card__icon"><ShieldCheck /></div>
-                <h3 class="value-card__title">Integrity</h3>
-                <p class="value-card__text">Doing what's right, not what's easy</p>
-            </div>
-        </article>
-        <article class="value-card" style="background-image: url('/img2/roof.PNG')">
-            <div class="value-card__overlay">
-                <div class="value-card__icon"><Timer /></div>
-                <h3 class="value-card__title">Efficiency</h3>
-                <p class="value-card__text">On time, on budget, every time</p>
-            </div>
-        </article>
-        <article class="value-card" style="background-image: url('/img2/kitchen 1.jpeg')">
-            <div class="value-card__overlay">
-                <div class="value-card__icon"><Star /></div>
-                <h3 class="value-card__title">Quality</h3>
-                <p class="value-card__text">Craftsmanship that stands the test of time</p>
-            </div>
-        </article>
+    <div class="container">
+        <div class="section-header">
+            <span class="section-tag">What Drives Us</span>
+            <h2 class="section-title">Our Values</h2>
+        </div>
+        <AccordionGallery
+            items={items}
+            defaultIndex={0}
+            accentColor="#E5A842"
+            overlayColor="#0A192F"
+            height={640}
+            radius={20}
+            expandRatio={0.4}
+        />
     </div>
 </section>

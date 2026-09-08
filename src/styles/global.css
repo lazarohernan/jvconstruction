@@ -1,8 +1,10 @@
 @import "tailwindcss";
 
 @import "./base.css";
-@import "./components/gallery.css";
 @import "./components/concrete.css";
+@import "./components/accordion-gallery.css";
+@import "./components/masonry.css";
+@import "./components/depth-carousel.css";
 
 /*
  * concrete-horizontal.css y ../scripts/horizontal-scroll.js se portaron
